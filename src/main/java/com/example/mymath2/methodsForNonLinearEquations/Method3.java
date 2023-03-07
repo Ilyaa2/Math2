@@ -18,6 +18,7 @@ public class Method3 extends Method {
 
     @Override
     public double calculate() throws Exception {
+        System.out.println("Метод простой итерации");
         if (!check()) throw new Exception();
         double current_x;
         double previous_x;
@@ -36,7 +37,7 @@ public class Method3 extends Method {
             current_x = equation.calcAuxiliaryFunction(previous_x);
             System.out.println(previous_x + "     " + current_x +"      "+"       "+ equation.calcAuxiliaryFunction(current_x) + "      " + equation.calcFunc(current_x) + "     " + Math.abs(current_x - previous_x));
         }while(Math.abs(current_x - previous_x) > precision);
-
+        System.out.println("");
         return current_x;
     }
 

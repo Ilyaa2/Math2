@@ -15,6 +15,7 @@ public class Method2 extends Method {
 
     @Override
     public double calculate() throws Exception {
+        System.out.println("Метод секущих");
         if (!check()) throw new Exception();
         double next_x;
         double current_x;
@@ -42,6 +43,7 @@ public class Method2 extends Method {
             previous_x = current_x;
         }while(Math.abs(next_x - current_x) > precision);
 
+        System.out.println("");
         return next_x;
     }
 

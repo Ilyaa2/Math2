@@ -1,0 +1,20 @@
+
+//SystemSolver systemSolver = new SystemSolver(new SystemOfEquations1(),1,2, 0.01);
+//SystemSolver systemSolver = new SystemSolver(new SystemOfEquations2(),-1,3, 0.01);
+//systemSolver.solve();
+
+/* функция 1
+double a = -5;
+double b = -3;
+
+/* функция 2
+double a = -2;
+double b = -1;
+
+/* функция 3
+double a = 0.3;
+double b = 5;
+
+Method method1 = new Method3(a,b, 0.01,new Equation2(a, b));
+method1.calculate();
+System.out.println("count of iterations:" + method1.getCount_of_iterations());

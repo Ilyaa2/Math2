@@ -23,6 +23,7 @@ public class Method1 extends Method {
 
     @Override
     public double calculate() throws Exception {
+        System.out.println("Метод хорд");
         if (!check()) throw new Exception();
         //double resistant_end;
         double current_x;
@@ -58,6 +59,7 @@ public class Method1 extends Method {
             //System.out.println(resistant_end + "       "+ x + "         "+ function.calcFunc(resistant_end)+"      "+ function.calcFunc(x) + "        "+ Math.abs(x - previous_x));
         } while(Math.abs(current_x - previous_x) > precision);
 
+        System.out.println("");
         return current_x;
     }
 
