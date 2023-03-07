@@ -8,4 +8,7 @@ public interface SystemOfEquations {
     public List<List<UnaryOperator<Double>>> getMatrix();
 
     public List<BinaryOperator<Double>> getArray();
+
+    public double resultOfFirstFunc(double x);
+    public double resultOfSecondFunc(double x);
 }

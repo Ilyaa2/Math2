@@ -38,11 +38,13 @@ public abstract class Method {
         if (equation.calcFunc(a) * equation.calcFunc(b) > 0){
             System.out.println("На введенном интервале либо нет корней, либо корень не единственный");
             return false;
+            //System.exit(-1);
         }
 
         if (a == b && Math.abs(equation.calcFunc(a)) < precision){
             System.out.println("Вы уже и так знаете ответ, зачем мучать программу???");
             return false;
+            //System.exit(-1);
         }
 
         double init_derivative = equation.calcFirstDerivative(a);
@@ -65,6 +67,7 @@ public abstract class Method {
             if (init_derivative * equation.calcFirstDerivative(min) < 0){
                 System.out.println("Корень на указанном промежутке не единственный");
                 return false;
+                //System.exit(-1);
             }
             if (validation != null) {
                 if (!validation.valid(min)) {

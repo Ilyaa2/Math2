@@ -39,4 +39,16 @@ public class SystemOfEquations2 implements SystemOfEquations {
     public List<BinaryOperator<Double>> getArray() {
         return array_of_functions;
     }
+
+    @Override
+    public double resultOfFirstFunc(double x) {
+        return Math.sqrt(8-x);
+    }
+
+    @Override
+    public double resultOfSecondFunc(double x) {
+        return -5*x - x*x;
+    }
+
+
 }

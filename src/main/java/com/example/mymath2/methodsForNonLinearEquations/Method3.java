@@ -53,51 +53,5 @@ public class Method3 extends Method {
         );
     }
 
-    /*
-    @Override
-    public boolean preValidation() {
-        if (function.calcFunc(a) * function.calcFunc(b) > 0){
-            System.out.println("На введенном интервале либо нет корней, либо корень не единственный");
-            return false;
-        }
-
-        if (a == b && function.calcFunc(a)==0){
-            System.out.println("Вы уже и так знаете ответ, зачем мучать программу???");
-            return false;
-        }
-
-        double init_derivative = function.calcFirstDerivative(a);
-        double step;
-        double min;
-        double max;
-        if (Math.abs(a) > Math.abs(b)){
-            step = Math.abs(b) * 0.1;
-        } else {
-            step = Math.abs(a) * 0.1;
-        }
-
-        if (a > b){
-            max = a; min = b;
-        } else {
-            max = b; min = a;
-        }
-
-        while(min < max){
-            if (init_derivative * function.calcFirstDerivative(min) < 0){
-                System.out.println("Корень на указанном промежутке не единственный");
-                return false;
-            }
-            if (!(function.calcDerivativeOfAuxiliaryFunction(min) >= 0 && function.calcDerivativeOfAuxiliaryFunction(min) < 1)){
-                System.out.println("Не соблюдается достаточное условие сходимости на интервале");
-                return false;
-            }
-            min = min + step;
-        }
-        return true;
-    }
-
-     */
-
-
 
 }

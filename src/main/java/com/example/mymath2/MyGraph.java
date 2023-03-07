@@ -18,6 +18,8 @@ public class MyGraph {
         final XYChart.Series<Double, Double> series = new XYChart.Series<>();
         for (double x = -range; x <= range; x = x + 0.01) {
             plotPoint(x, function.apply(x), series);
+            //добавил
+            //plotPoint(x, -function.apply(x),series);
         }
         graph.getData().add(series);
     }

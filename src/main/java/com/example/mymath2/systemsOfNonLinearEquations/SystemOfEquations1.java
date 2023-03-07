@@ -40,4 +40,14 @@ public class SystemOfEquations1 implements SystemOfEquations {
         return array_of_functions;
     }
 
+    @Override
+    public double resultOfFirstFunc(double x) {
+        return Math.sqrt(4-x*x);
+    }
+
+    @Override
+    public double resultOfSecondFunc(double x) {
+        return 3*x*x;
+    }
+
 }

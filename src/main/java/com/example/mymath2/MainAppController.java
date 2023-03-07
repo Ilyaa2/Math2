@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.Function;
 
+import com.example.mymath2.util.Switch;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,113 +14,33 @@ import javafx.scene.control.Button;
 
 public class MainAppController implements Initializable {
 
+    Switch sw;
+
+    //Это объект на разметке, который имеет грид, рисунок
     @FXML
     private LineChart<Double, Double> lineGraph;
 
-    @FXML
-    private AreaChart<Double, Double> areaGraph;
-
-    /*
-    @FXML
-    private Button lineGraphButton;
-
-    @FXML
-    private Button areaGraphButton;
-
-    @FXML
-    private Button xyButton;
-
-    @FXML
-    private Button xyButton2;
-
-    @FXML
-    private Button squaredButton;
-
-    @FXML
-    private Button squaredButton2;
-
-    @FXML
-    private Button cubedButton;
-
-    @FXML
-    private Button cubedButton2;
-
-    @FXML
-    private Button clearButton;
-
-     */
-
+    //Это аккумулятор точек
     private MyGraph mathsGraph;
-    private MyGraph areaMathsGraph;
 
+
+    //Здесь можно получить функцию
     @Override
     public void initialize(final URL url, final ResourceBundle rb) {
-        mathsGraph = new MyGraph(lineGraph, 10);
-        areaMathsGraph = new MyGraph(areaGraph, 10);
-    }
-
-    @FXML
-    private void handleLineGraphButtonAction(final ActionEvent event) {
+        sw = new Switch();
+        sw.doSwitch();
+        mathsGraph = new MyGraph(lineGraph, 10); //range влияет на точность графика
         lineGraph.setVisible(true);
-        areaGraph.setVisible(false);
-    }
+        if (sw.getEquation() != null){
+            mathsGraph.plotLine(x -> sw.getEquation().calcFunc(x));
+        } else{
+            //в силу симметричности первых функций:
+            mathsGraph.plotLine(x -> sw.getSystemOfEquations().resultOfFirstFunc(x));
+            mathsGraph.plotLine(x -> -sw.getSystemOfEquations().resultOfFirstFunc(x));
 
-    @FXML
-    private void handleAreaGraphButtonAction(final ActionEvent event) {
-        lineGraph.setVisible(false);
-        areaGraph.setVisible(true);
-    }
-
-    @FXML
-    private void handleXYButtonAction(final ActionEvent event) {
-        plotLine(x -> x);
-    }
-
-    private void plotLine(Function<Double, Double> function) {
-        if (lineGraph.isVisible()) {
-            mathsGraph.plotLine(function);
-        } else {
-            areaMathsGraph.plotLine(function);
+            mathsGraph.plotLine(x -> sw.getSystemOfEquations().resultOfSecondFunc(x));
         }
+
     }
 
-    @FXML
-    private void handleXYButton2Action(final ActionEvent event) {
-        //plotLine(x -> x - 3);
-        plotLine(x -> Math.sqrt(4-x*x));
-        plotLine(x -> -Math.sqrt(4-x*x));
-    }
-
-    @FXML
-    private void handleSquaredButtonAction(final ActionEvent event) {
-        plotLine(x -> Math.pow(x, 2));
-    }
-
-    @FXML
-    private void handleSquaredButton2Action(final ActionEvent event) {
-        plotLine(x -> Math.pow(x, 2) + 2);
-    }
-
-    @FXML
-    private void handleCubedButtonAction(final ActionEvent event) {
-        plotLine(x -> Math.pow(x, 3));
-    }
-
-    @FXML
-    private void handleCubedButton2Action(final ActionEvent event) {
-        plotLine(x -> Math.pow(x - 3, 3) - 1);
-    }
-
-    @FXML
-    private void handleClearButtonAction(final ActionEvent event) {
-        clear();
-    }
-
-    private void clear() {
-        if (lineGraph.isVisible()) {
-            mathsGraph.clear();
-        } else {
-            areaMathsGraph.clear();
-        }
-    }
 }
