@@ -19,6 +19,7 @@ public class MainAppController implements Initializable {
     @FXML
     private AreaChart<Double, Double> areaGraph;
 
+    /*
     @FXML
     private Button lineGraphButton;
 
@@ -46,6 +47,8 @@ public class MainAppController implements Initializable {
     @FXML
     private Button clearButton;
 
+     */
+
     private MyGraph mathsGraph;
     private MyGraph areaMathsGraph;
 
@@ -63,8 +66,8 @@ public class MainAppController implements Initializable {
 
     @FXML
     private void handleAreaGraphButtonAction(final ActionEvent event) {
-        areaGraph.setVisible(true);
         lineGraph.setVisible(false);
+        areaGraph.setVisible(true);
     }
 
     @FXML
@@ -83,7 +86,8 @@ public class MainAppController implements Initializable {
     @FXML
     private void handleXYButton2Action(final ActionEvent event) {
         //plotLine(x -> x - 3);
-        //plotLine();
+        plotLine(x -> Math.sqrt(4-x*x));
+        plotLine(x -> -Math.sqrt(4-x*x));
     }
 
     @FXML

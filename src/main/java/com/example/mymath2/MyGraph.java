@@ -15,16 +15,15 @@ public class MyGraph {
     }
 
     public void plotLine(final Function<Double, Double> function) {
-        final XYChart.Series<Double, Double> series = new XYChart.Series<Double, Double>();
+        final XYChart.Series<Double, Double> series = new XYChart.Series<>();
         for (double x = -range; x <= range; x = x + 0.01) {
             plotPoint(x, function.apply(x), series);
         }
         graph.getData().add(series);
     }
 
-    private void plotPoint(final double x, final double y,
-                           final XYChart.Series<Double, Double> series) {
-        series.getData().add(new XYChart.Data<Double, Double>(x, y));
+    private void plotPoint(final double x, final double y, final XYChart.Series<Double, Double> series) {
+        series.getData().add(new XYChart.Data<>(x, y));
     }
 
     public void clear() {
